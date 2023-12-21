@@ -1,0 +1,10 @@
+# PAT=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
+# echo $PAT | docker login ghcr.io --username mustafah --password-stdin
+
+# docker build -t ghcr.io/mustafah/mljar-notebook:latest .
+
+docker build -t bmustafah/mljar-notebook:latest .
+
+docker push ghcr.io/mustafah/mljar-notebook:latest
+
+ssh -p 40084 root@213.156.102.91 -L 8080:localhost:8080
