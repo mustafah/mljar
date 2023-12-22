@@ -21,6 +21,6 @@ EXPOSE 8080
 # Run code-server when the container launches
 # CMD ["code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none"]
 
-ENTRYPOINT ["code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none", "--cert", "/usr/src/app/certificate.pem", "--cert-key", "/usr/src/app/key.pem"]
+CMD ["code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none", "--cert", "/usr/src/app/certificate.pem", "--cert-key", "/usr/src/app/key.pem"]
 
 # code-server --bind-addr 0.0.0.0:8080 --auth none

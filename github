@@ -1,6 +1,7 @@
 docker logout ghcr.io
 
 PAT=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
+PAT=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
 echo $PAT | docker login ghcr.io --username mustafah --password-stdin
 
 # docker build -t ghcr.io/mustafah/mljar-notebook:latest .
