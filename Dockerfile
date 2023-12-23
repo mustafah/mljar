@@ -24,4 +24,4 @@ EXPOSE 8080
 # CMD ["code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none", "--cert", "/usr/src/app/certificate.pem", "--cert-key", "/usr/src/app/key.pem"]
 # code-server --bind-addr 0.0.0.0:8080 --auth none --cert /usr/src/app/certificate.pem --cert-key /usr/src/app/key.pem
 # code-server --bind-addr 0.0.0.0:8080 --auth none
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+# CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
