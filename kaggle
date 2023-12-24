@@ -1,0 +1,3 @@
+kaggle kernels pull daikikatsuragawa/a-beginner-s-guide-to-mljar -p /Users/mustafah/Projects
+kaggle datasets download -d daikikatsuragawa/a-beginner-s-guide-to-mljar
+kaggle competitions download -c titanic
