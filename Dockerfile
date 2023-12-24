@@ -1,28 +1,22 @@
-FROM tensorflow/tensorflow
-# # Use the latest official Python image
-# FROM python:3.9.13
+FROM tensorflow/tensorflow:latest
 
-# # Set the working directory in the container
-# WORKDIR /usr/src/app
+# Install basic packages
+RUN apt-get update && apt-get install -y wget
 
-# # Install code-server (VS Code in the browser)
-# # RUN curl -fsSL https://code-server.dev/install.sh | sh
+# Download and install Miniconda
+ENV MINICONDA_VERSION=latest
+ENV MINICONDA_PATH=/opt/conda
+ENV PATH=${MINICONDA_PATH}/bin:$PATH
 
-# # Install Jupyter Notebook and MLJAR-Supervised
-# RUN pip install --no-cache-dir notebook mljar-supervised
-# RUN pip install ipywidgets
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh -O /miniconda.sh && \
+    bash /miniconda.sh -b -p ${MINICONDA_PATH} && \
+    rm /miniconda.sh
 
-# # Copy your SSL files into the container
-# # COPY certificate.pem /usr/src/app/certificate.pem
-# # COPY key.pem /usr/src/app/key.pem
+# Create a default environment with Python 3.9.13
+RUN conda install -y python=3.9.13
 
-# # Make code-server's port available to the world outside this container
-# EXPOSE 8080
+# Ensure conda is in the path
+ENV PATH=${MINICONDA_PATH}/bin:$PATH
 
-# # Run code-server when the container launches
-# # CMD ["code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none"]
-
-# # CMD ["code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none", "--cert", "/usr/src/app/certificate.pem", "--cert-key", "/usr/src/app/key.pem"]
-# # code-server --bind-addr 0.0.0.0:8080 --auth none --cert /usr/src/app/certificate.pem --cert-key /usr/src/app/key.pem
-# # code-server --bind-addr 0.0.0.0:8080 --auth none
-# # CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+# Set the working directory
+WORKDIR /app
