@@ -19,7 +19,7 @@ RUN conda install -y python=3.9.13
 # Ensure conda is in the path
 ENV PATH=${MINICONDA_PATH}/bin:$PATH
 
-RUN pip install --no-cache-dirmljar-supervised
+RUN pip install --no-cache-dir mljar-supervised
 
 # RUN pip install --no-cache-dirmljar-supervised kaggle
 
