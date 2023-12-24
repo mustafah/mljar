@@ -1,7 +1,8 @@
 FROM tensorflow/tensorflow:latest
 
 # Install basic packages
-RUN apt-get update && apt-get install -y wget
+RUN apt-get update && apt-get install -y wget git
+
 
 # Download and install Miniconda
 ENV MINICONDA_VERSION=latest
